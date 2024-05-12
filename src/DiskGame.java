@@ -113,18 +113,15 @@
          /*# YOUR CODE HERE */
 
          for(int currentDisk =0; currentDisk < numDisks; currentDisk +=1){
-            boolean invalidDisk = true;
-            while(invalidDisk){
+
                 
-                int xPos = (int)(Math.random()*GAME_WIDTH);
+            int xPos = (int)(Math.random()*GAME_WIDTH);
 
-                int yPos = (int)(Math.random()*SHOOTING_RANGE_Y);
+            int yPos = (int)(Math.random()*SHOOTING_RANGE_Y);
 
-                disks.add(new Disk(xPos,yPos));
+            disks.add(new Disk(xPos,yPos));
 
-                invalidDisk = false;
-                
-            }
+
          }
 
          UI.println(disks.size());

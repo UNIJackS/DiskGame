@@ -111,7 +111,7 @@
       */
      public void initialiseDisks(){
          /*# YOUR CODE HERE */
-
+         UI.println("compleation");
          for(int currentDisk =0; currentDisk < numDisks; currentDisk +=1){
             boolean invalidDisk = true;
             while(invalidDisk){
@@ -124,15 +124,15 @@
 
                 invalidDisk = false;
 
-
-                //if( disks.size() > 1){
-                //    for(int diskIndex =0; diskIndex < disks.size()-1; diskIndex +=1){
-                //        if(disks.get(disks.size()).isOverlapping(disks.get(diskIndex))){
-                //            invalidDisk = true;
-                //            disks.remove(disks.size());
-                //        }
-                //    }
-                //}
+                
+                if( disks.size() > 1){
+                    for(int diskIndex =0; diskIndex < disks.size()-1; diskIndex +=1){
+                        if(disks.get(disks.size()).isOverlapping(disks.get(diskIndex))){
+                            invalidDisk = true;
+                            disks.remove(disks.size());
+                        }
+                    }
+                }
                 
             }
          }

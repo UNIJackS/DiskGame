@@ -57,6 +57,9 @@
       */
      public Disk(double x, double y, int d) {
          /*# YOUR CODE HERE */
+         this.centerX = x;
+         this.centerY = y;
+         this.damage = d;
  
      }
  
@@ -67,8 +70,9 @@
       */
      public String toString(){
          /*# YOUR CODE HERE */
-         
-         return "";   // This is for compilation purpose. You will need to fix this.
+        
+
+         return "X:" + centerX +" Y:" + centerY + "damage:" + damage;   // This is for compilation purpose. You will need to fix this.
      }
  
      /**

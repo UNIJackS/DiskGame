@@ -31,7 +31,7 @@
   * The game is over when either the player has run out of shots or all the disks have exploded.
   */
  
- public class DiskGame{
+ public class CoreDiskGame{
      // Constants for the game geometry: the disks in the shooting range should
      // all be in the rectangle starting at (0,0) with a width of 500 and a height of 150
      // The gun should be on the line at y = 300
@@ -65,8 +65,6 @@
          UI.addSlider("Number of Shots",2,60,DEFAULT_NUMBER_OF_DISKS,this::setNumShots);
 
          UI.addButton("Restart", this::startGame);
-         UI.addButton("Load Game", this::loadGame);
-         UI.addButton("Save Game", this::saveGame);
  
          UI.addButton("Quit", UI::quit);
          UI.setDivider(0);
@@ -111,32 +109,15 @@
       */
      public void initialiseDisks(){
          /*# YOUR CODE HERE */
-         UI.println("compleation");
          disks = new ArrayList<Disk>();
-         for(int currentDisk =0; currentDisk < numDisks; currentDisk +=1){
-            boolean invalidDisk = true;
-            while(invalidDisk){
-                
-                int xPos = (int)(Math.random()*GAME_WIDTH);
+         for(int currentDisk =0; currentDisk < numDisks; currentDisk +=1){            
+            int xPos = (int)(Math.random()*GAME_WIDTH);
 
-                int yPos = (int)(Math.random()*SHOOTING_RANGE_Y);
+            int yPos = (int)(Math.random()*SHOOTING_RANGE_Y);
 
-                disks.add(new Disk(xPos,yPos));
+            disks.add(new Disk(xPos,yPos));
 
-                invalidDisk = false;
 
-                
-                if( disks.size() > 1){
-                    for(int diskIndex =0; diskIndex < disks.size()-2; diskIndex +=1){
-                        if(disks.get(disks.size()-1).isOverlapping(disks.get(diskIndex))){
-                            
-                            disks.remove(disks.size()-1);
-                            invalidDisk = true;
-                        }
-                    }
-                }
-                
-            }
          }
 
          UI.println(disks.size());
@@ -209,7 +190,6 @@
                 diskThatGotShot.damage();
                 if(diskThatGotShot.isBroken()){
                     damageNeighbours(diskThatGotShot);
-                    disks.remove(diskThatGotShot);
                     UI.println(disks.size());
                 }
                 break;
@@ -305,11 +285,12 @@
          /*# YOUR CODE HERE */
         double scoreTotal = 0;
         for(int diskIndex =0; diskIndex < disks.size(); diskIndex +=1){
-            
             scoreTotal += disks.get(diskIndex).score();
         }
         //for all the destroyed disks
-        scoreTotal += 150 * (30 - disks.size()); 
+
+        UI.println("score" + scoreTotal);
+ 
      }
  
      /**
@@ -319,16 +300,7 @@
      public void updateScoreCompletion(){
          // Hint: Remember to account for the broken disks
          /*# YOUR CODE HERE */
-         double scoreTotal = 0;
-        for(int diskIndex =0; diskIndex < disks.size(); diskIndex +=1){
-            
-            scoreTotal += disks.get(diskIndex).score();
-        }
-        //for all the destroyed disks
-        scoreTotal += 150 * (30 - disks.size());
-
-        score = score + (scoreTotal-score);
-        UI.println("score:"+score);
+ 
      }
  
      /**
@@ -362,11 +334,6 @@
 
         for(int diskIndex =0; diskIndex < disks.size(); diskIndex +=1){
             disks.get(diskIndex).draw();
-        }
-
-        for(int currentRound =0; currentRound < shotsRemaining; currentRound +=1){
-            UI.setColor(Color.red.darker());
-            UI.fillRect(3,GUN_Y -4 - 4*currentRound, 3, 3);
         }
     
  

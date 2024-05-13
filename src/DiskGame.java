@@ -308,8 +308,8 @@
             
             scoreTotal += disks.get(diskIndex).score();
         }
-        //for all the destroyed disks
-        scoreTotal += 150 * (30 - disks.size()); 
+        score = scoreTotal;
+        UI.printMessage("score:"+score);
      }
  
      /**
@@ -327,8 +327,8 @@
         //for all the destroyed disks
         scoreTotal += 150 * (30 - disks.size());
 
-        score = score + (scoreTotal-score);
-        UI.println("score:"+score);
+        score = scoreTotal;
+        UI.printMessage("score:"+score);
      }
  
      /**

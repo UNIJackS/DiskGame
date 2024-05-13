@@ -111,16 +111,14 @@
          /*# YOUR CODE HERE */
          disks = new ArrayList<Disk>();
          for(int currentDisk =0; currentDisk < numDisks; currentDisk +=1){            
-            int xPos = (int)(Math.random()*GAME_WIDTH);
+            int xPos = (int)(Math.random()*(GAME_WIDTH-20)+10);
 
-            int yPos = (int)(Math.random()*SHOOTING_RANGE_Y);
+            int yPos = (int)((Math.random()*(SHOOTING_RANGE_Y-20))+10);
 
             disks.add(new Disk(xPos,yPos));
 
 
          }
-
-         UI.println(disks.size());
      }
  
      /**
@@ -190,7 +188,6 @@
                 diskThatGotShot.damage();
                 if(diskThatGotShot.isBroken()){
                     damageNeighbours(diskThatGotShot);
-                    UI.println(disks.size());
                 }
                 break;
              }
@@ -243,7 +240,7 @@
       */
      public void damageNeighbours(Disk disk){
          /*# YOUR CODE HERE */
-
+         disk.explode();
         for(int diskIndex =0; diskIndex < disks.size()-1; diskIndex +=1){
             if(disks.get(diskIndex).isWithinRange(disk)){
                 disks.get(diskIndex).damage();

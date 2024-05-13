@@ -72,7 +72,7 @@
          /*# YOUR CODE HERE */
         
 
-         return "X:" + centerX +" Y:" + centerY + "damage:" + damage;   // This is for compilation purpose. You will need to fix this.
+         return centerX +" " + centerY + " " + damage;   // This is for compilation purpose. You will need to fix this.
      }
  
      /**

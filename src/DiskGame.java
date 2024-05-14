@@ -284,12 +284,9 @@
         for(int diskIndex =0; diskIndex < disks.size(); diskIndex +=1){
             scoreTotal += disks.get(diskIndex).score();
         }
-<<<<<<< HEAD
         //for all the destroyed disks
 
-=======
-        score =scoreTotal;
->>>>>>> 5998832fbda0e7e65c7f631b6bd55dc2f1fa603e
+        score = scoreTotal;
         UI.printMessage("score:" + scoreTotal);
  
      }
@@ -336,17 +333,12 @@
         for(int diskIndex =0; diskIndex < disks.size(); diskIndex +=1){
             disks.get(diskIndex).draw();
         }
-<<<<<<< HEAD
 
         for(int currentRound =0; currentRound < shotsRemaining; currentRound +=1){
             UI.setColor(Color.red.darker());
             UI.fillRect(3,GUN_Y -4 - 4*currentRound, 3, 3);
         }
 
-=======
-    
- 
->>>>>>> 5998832fbda0e7e65c7f631b6bd55dc2f1fa603e
      }
  
      /**

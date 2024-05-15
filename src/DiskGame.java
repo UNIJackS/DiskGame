@@ -60,9 +60,8 @@
      public void setupGUI(){
          /*# YOUR CODE HERE */
          UI.setMouseListener(this::doMouse);
-
-         UI.addSlider("Number of Disks",2,60,DEFAULT_NUMBER_OF_SHOTS,this::setNumDisks);
-         UI.addSlider("Number of Shots",2,60,DEFAULT_NUMBER_OF_DISKS,this::setNumShots);
+         UI.addSlider("Number of Disks",2,60,DEFAULT_NUMBER_OF_DISKS,this::setNumDisks);
+         UI.addSlider("Number of Shots",2,60,DEFAULT_NUMBER_OF_SHOTS,this::setNumShots);
 
          UI.addButton("Restart", this::startGame);
  
